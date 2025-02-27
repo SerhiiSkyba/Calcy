@@ -30,7 +30,7 @@ namespace Calculator
 
         private string FunctionType; // Used for remembering, which function was selected
 
-        private string Wpisane; // Used to take data from calculator field and data manipulation
+        private string Wpisane = ""; // Used to take data from calculator field and data manipulation
 
         private double NumberOne; // Used for remembering first number after pressing function button
 
@@ -61,14 +61,17 @@ namespace Calculator
             buttonNumber = $"{((Button)sender).Content}"; // Checks, which button was clicked
 
             // Checks, is calculator field empty or not
+            if (inputbox.Text == "Nan" || inputbox.Text == "NaN" || inputbox.Text == "∞")
+                inputbox.Text = "0";
             if (inputbox.Text == "0" && buttonNumber != ",") // if yes, field to ""
                 inputbox.Text = "";
-            Wpisane = inputbox.Text;
-            if (Wpisane.Contains(",") == true && buttonNumber == ",")
+            if (inputbox.Text == "0" && buttonNumber == "00")
+                buttonNumber = "0";
+                inputbox.Text = "";
+            if (Wpisane.Contains(",") && buttonNumber == ",")
             {
                 buttonNumber = "";
             }
-
             // Adds pressed button to the variable Wpisane
             Wpisane = Wpisane + buttonNumber;
             inputbox.Text = Wpisane; // Turns calculator field into variable Wpisane
@@ -110,7 +113,7 @@ namespace Calculator
                         result.Text = Wpisane;
                         break;
                 }
-                if (Wpisane == "Nan" || Wpisane == "∞")
+                if (Wpisane == "Nan" || Wpisane == "NaN" || Wpisane == "∞")
                     result.Text = "0";
             }
             else
@@ -124,6 +127,7 @@ namespace Calculator
             PlayMusic();
             result.Text = "";
             FunctionType = "";
+            Wpisane = "";
             NumberOne = 0;
             NumberTwo = 0;
         }
@@ -176,7 +180,7 @@ namespace Calculator
                         result.Text = Wpisane;
                         break;
                 }
-                if (Wpisane == "Nan" || Wpisane == "∞")
+                if (Wpisane == "Nan" || Wpisane == "NaN" || Wpisane == "∞")
                     result.Text = "0";
             }
             else
@@ -283,9 +287,11 @@ namespace Calculator
                     break;
                 default:
                     inputbox.Text = Calc.ToString();
+                    if (Wpisane == "Nan" || Wpisane == "NaN" || Wpisane == "∞")
+                        inputbox.Text = "0";
                     break;
             }
-            if (Wpisane == "Nan" || Wpisane == "∞")
+            if (inputbox.Text == "Nan" || inputbox.Text == "NaN" || inputbox.Text == "∞")
                 inputbox.Text = "0";
         }
 
@@ -302,11 +308,16 @@ namespace Calculator
                     PressedKey = PressedKey.Replace("D", "");
                 else
                     PressedKey = PressedKey.Replace("NumPad", "");
+
                 if (inputbox.Text == "0")
                     inputbox.Text = "";
+                if (Wpisane == "Nan" || Wpisane == "NaN" || Wpisane == "∞")
+                    inputbox.Text = "0";
                 Wpisane = inputbox.Text;
                 Wpisane = Wpisane + PressedKey;
                 inputbox.Text = Wpisane;
+                if (Wpisane == "Nan" || Wpisane == "NaN" || Wpisane == "∞")
+                    inputbox.Text = "0";
 
                 // Used for displaying supossed result, if FunctionType has value
                 if (FunctionType == "+" || FunctionType == "-" || FunctionType == "/" || FunctionType == "*" || FunctionType == "^" || FunctionType == "log")
@@ -345,7 +356,7 @@ namespace Calculator
                             result.Text = Wpisane;
                             break;
                     }
-                    if (Wpisane == "Nan" || Wpisane == "∞")
+                    if (Wpisane == "Nan" || Wpisane == "NaN" || Wpisane == "∞")
                         result.Text = "0";
                 }
             }
@@ -436,14 +447,15 @@ namespace Calculator
                             inputbox.Text = Calc.ToString();
                             break;
                     }
-                    if (Wpisane == "Nan" || Wpisane == "∞")
+                    if (inputbox.Text == "Nan" || inputbox.Text == "NaN" || inputbox.Text == "∞")
                         inputbox.Text = "0";
-                    break;
+                break;
 
                 // Works like Clear function but only when you press C
                 case "C":
                     inputbox.Text = "0";
                     result.Text = "";
+                    Wpisane = "";
                     NumberOne = 0;
                     NumberTwo = 0;
                     break;
