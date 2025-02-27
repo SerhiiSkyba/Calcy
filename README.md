@@ -26,3 +26,6 @@ Memory: 256 MB RAM
 Graphics: Any
 
 Storage: 5 MB Source Code + 200 KB Program
+
+## Authors
+Code and design - **Serhii Skyba**
