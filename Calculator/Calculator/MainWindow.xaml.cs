@@ -39,15 +39,7 @@ namespace Calculator
         private double Calc; // Used for counting final result
 
         // Used for playing sound, when clicking the button
-        void PlayMusic()
-        {
-            using (FileStream stream = File.Open(@"click.wav", FileMode.Open)) // Finds where music file is
-            {
-                SoundPlayer myNewSound = new SoundPlayer(stream);
-                myNewSound.Load();
-                myNewSound.Play();
-            }
-        }
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -57,7 +49,6 @@ namespace Calculator
         // Used for entering numbers through GUI
         private void Wpisz(object sender, RoutedEventArgs e)
         {
-            PlayMusic();
             buttonNumber = $"{((Button)sender).Content}"; // Checks, which button was clicked
 
             // Checks, is calculator field empty or not
@@ -124,7 +115,6 @@ namespace Calculator
         private void Clear(object sender, RoutedEventArgs e)
         {
             inputbox.Text = "0";
-            PlayMusic();
             result.Text = "";
             FunctionType = "";
             Wpisane = "";
@@ -141,7 +131,6 @@ namespace Calculator
             if (Wpisane == "")
                 Wpisane = "0";
             inputbox.Text = Wpisane;
-            PlayMusic();
 
             // Used for displaying supossed result, if FunctionType has value
             if (FunctionType == "+" || FunctionType == "-" || FunctionType == "/" || FunctionType == "*" || FunctionType == "^" || FunctionType == "log")
@@ -196,7 +185,6 @@ namespace Calculator
             else
                 Wpisane = "-" + Wpisane;
             inputbox.Text = Wpisane;
-            PlayMusic();
         }
 
         // Defines, what operation type is entered
@@ -205,7 +193,6 @@ namespace Calculator
             FunctionType = $"{((Button)sender).Content}";
             NumberOne = double.Parse(inputbox.Text); // Sets value of first number to value of calculator field with convertation
             inputbox.Text = "0";
-            PlayMusic();
         }
 
         // Calculates root of number
@@ -214,7 +201,6 @@ namespace Calculator
             NumberOne = double.Parse(inputbox.Text);
             NumberOne = Math.Sqrt(NumberOne);
             inputbox.Text = NumberOne.ToString();
-            PlayMusic();
         }
 
         // Calculates cubic root of number
@@ -223,7 +209,6 @@ namespace Calculator
             NumberOne = double.Parse(inputbox.Text);
             NumberOne = Math.Cbrt(NumberOne);
             inputbox.Text = NumberOne.ToString();
-            PlayMusic();
         }
 
         // Calculates factorial of a number
@@ -236,7 +221,6 @@ namespace Calculator
                 factorial = factorial * i;
             }
             inputbox.Text = factorial.ToString();
-            PlayMusic();
         }
 
         // Calculates final result
@@ -244,7 +228,6 @@ namespace Calculator
         {
             NumberTwo = double.Parse(inputbox.Text);
             result.Text = "";
-            PlayMusic();
             
             // Depending on value of FunctionType, calculates final result using two numbers
             switch (FunctionType)
