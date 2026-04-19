@@ -1,31 +1,37 @@
-# Calcy - Stylish and Efficient calculator
-Calcy is a simple calculator, that supports keyboard shortcuts
-## Keyboard Shortcuts
-Shorcuts are intuitive to use. All of the shortcuts are the same to the buttons, except:
+# Calcy – Stylowy i wydajny kalkulator
 
-S - **swaps the value of number from negative to positive and vice versa**
+Calcy to prosty kalkulator, który obsługuje skróty klawiaturowe.
 
-T - **outputs cubic root of the number**
+## Skróty klawiaturowe
 
-R - **outputs square root of the number**
+Skróty są intuicyjne w użyciu. Wszystkie odpowiadają przyciskom kalkulatora, z wyjątkiem:
 
-F - **outputs factorial of the number**
+**S** – zmienia wartość liczby z dodatniej na ujemną i odwrotnie
 
-C - **clears inputfield**
+**T** – oblicza pierwiastek sześcienny z liczby
 
-P - **turns number to the power of the next number**
+**R** – oblicza pierwiastek kwadratowy z liczby
 
-L - **returns logarithm of the number**
-## System requirements
-OS: Windows 10 64-bit
+**F** – oblicza silnię
 
-Processor: Any
+**C** – czyści pole wprowadzania
 
-Memory: 256 MB RAM
+**P** – podnosi liczbę do potęgi kolejnej liczby
 
-Graphics: Any
+**L** – oblicza logarytm liczby
 
-Storage: 5 MB Source Code + 200 KB Program
+## Wymagania systemowe
 
-## Authors
-Code and design - **Serhii Skyba**
+**System operacyjny:** Windows 10 64-bit
+
+**Procesor:** Dowolny
+
+**Pamięć:** 256 MB RAM
+
+**Grafika:** Dowolna
+
+**Miejsce na dysku:** 5 MB kodu źródłowego + 200 KB programu
+
+## Autorzy
+
+**Kod i projekt:** Serhii Skyba
